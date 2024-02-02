@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+if [ -z "$CLOUD" ]; then
+    echo "Must provide CLOUD in environment variables" 1>&2
+    exit 1
+fi
+if [ -z "$ENV" ]; then
+    echo "Must provide ENV in environment variables" 1>&2
+    exit 1
+fi
+if [ -z "$TYPE" ]; then
+    echo "Must provide TYPE in environment variables" 1>&2
+    exit 1
+fi
+
+# if the script is called from the top level dir and TF_ROOT exists, then cd into into
+if [ -d $TF_ROOT ]; then
+    cd $TF_ROOT
+fi
